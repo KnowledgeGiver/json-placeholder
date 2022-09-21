@@ -1,0 +1,24 @@
+<div *ngIf="chosenPost">
+  <h1>Chosen Post</h1>
+  <label>
+    Post title: <input [(ngModel)]="chosenPost.title" />
+  </label>
+  <label>
+    Post body: <input [(ngModel)]="chosenPost.body" />
+  </label>
+</div>
+
+<!-- this div is going to be the container for the entire post -->
+<div class="post" *ngFor="let post of posts">
+  <mat-card>
+    <mat-card-subtitle>Post Id - {{ post.id }}</mat-card-subtitle>
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ post.body }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="choosePost(post)">EDIT</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
